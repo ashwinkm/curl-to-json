@@ -1,7 +1,8 @@
 module.exports = {
-	matchArgv: function(s) {
+	matchArgv: function (s) {
 		// ref: https://stackoverflow.com/questions/366202/regex-for-splitting-a-string-using-space-when-not-surrounded-by-single-or-double
 		return s
+			.replace(/\\\r\n/g, ' ')
 			.replace(/\\\n/g, ' ')
 			.match(/"([^"\\]*(?:\\.[^"\\]*)*)"|'([^'\\]*(?:\\.[^'\\]*)*)'|[^\s]+/g)
 			.map((s) => {
